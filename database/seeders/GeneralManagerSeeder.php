@@ -17,8 +17,10 @@ class GeneralManagerSeeder extends Seeder
             User::create([
                 'name'     => 'General Manager',
                 'email'    => $email,
-                'document' => '000.000.000-00',
-                'password' => Hash::make('123')
+                'cpf'      => '00000000000',
+                'password' => Hash::make('123'),
+                'role_id'  => 1,
+                'active'   => true
             ]);
         }
     }

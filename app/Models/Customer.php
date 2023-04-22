@@ -14,6 +14,7 @@ class Customer extends Model
     protected $fillable = [
         'birthdate',
         'address_street',
+        'address_number',
         'address_complement',
         'address_district',
         'address_city',

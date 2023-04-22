@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->date('birthdate');
             $table->string('address_street');
+            $table->string('address_number');
             $table->string('address_complement')->nullable();
             $table->string('address_district');
             $table->string('address_city');
