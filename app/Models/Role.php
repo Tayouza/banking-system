@@ -13,4 +13,13 @@ class Role extends Model
         'name',
         'permissions'
     ];
+
+    public function getNameTranslated()
+    {
+        return match ($this->name) {
+            'GENERAL MANAGER' => 'Gerente Geral',
+            'ACCOUNT MANAGER' => 'Gerente de Conta',
+            'CUSTOMER' => 'Cliente',
+        };
+    }
 }

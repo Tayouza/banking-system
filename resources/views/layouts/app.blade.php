@@ -14,6 +14,7 @@
         <!-- Scripts -->
         @wireUiScripts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdn.tailwindcss.com"></script>
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -36,5 +37,6 @@
             </main>
         </div>
         @livewireScripts
+        @livewire('livewire-ui-modal')
     </body>
 </html>

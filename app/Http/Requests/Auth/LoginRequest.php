@@ -48,6 +48,14 @@ class LoginRequest extends FormRequest
                 'email' => trans('auth.failed'),
             ]);
         }
+        
+        if (!$this->user()->active) {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'email' => trans('auth.active'),
+            ]);
+        }
 
         RateLimiter::clear($this->throttleKey());
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\ManagerUsers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
+    Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
+    Route::get('/manage-users', fn () => view('manage-users'))->name('manage-users');
 });
 
 Route::middleware('auth')->group(function () {
