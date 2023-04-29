@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('address_state');
             $table->string('cep');
             $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class, 'manager_id')->nullable();
             $table->timestamps();
         });
     }

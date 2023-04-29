@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Modals;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use LivewireUI\Modal\ModalComponent;
@@ -16,6 +17,7 @@ class EditUsers extends ModalComponent
     public $cpf;
     public $email;
     public $roleId;
+    public $managerId;
     public $active;
 
     public function mount(int $id)
@@ -26,6 +28,7 @@ class EditUsers extends ModalComponent
         $this->cpf = $this->user->cpf;
         $this->email = $this->user->email;
         $this->roleId = $this->user->role_id;
+        $this->managerId = $this->user->customer?->manager_id;
         $this->active = $this->user->active;
     }
 
@@ -48,12 +51,23 @@ class EditUsers extends ModalComponent
         $this->user->cpf = $this->cpf;
         $this->user->email = $this->email;
         $this->user->role_id = $this->roleId;
+        $this->user->customer->manager_id = $this->managerId ?: null;
         $this->user->active = $this->active;
 
         $this->user->save();
+        $this->user->customer->save();
 
         $this->emit('save-user');
         $this->notification()->success('Usuário', 'Usúario salvo com sucesso!');
         $this->closeModal();
+    }
+
+    public function getRolesProperty()
+    {
+        $roles = Role::all();
+        foreach ($roles as $role) {
+            $role->name = $role->getNameTranslated();
+        }
+        return $roles;
     }
 }

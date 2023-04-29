@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Relations\CustomerRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Customer extends Model
 {
@@ -21,5 +22,16 @@ class Customer extends Model
         'address_state',
         'cep',
         'user_id',
+        'manager_id',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function manager(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

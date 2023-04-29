@@ -10,14 +10,17 @@
             <x-input label="Email" type="email" placeholder="example@mail.com" wire:model.defer="email" />
         </div>
         <div class="w-full">
-            <x-native-select label="Perfil" wire:model.defer="roleId">
-                <option value="2">Gerente de conta</option>
-                <option value="3">Cliente</option>
-            </x-native-select>
+            <x-native-select label="Perfil" :options="$this->roles" option-label="name" option-value="id"
+                wire:model="roleId" />
+        </div>
+        <div class="w-full">
+            <x-select label="Pesquise por um gerente" wire:model.defer="managerId" placeholder="Gerente"
+                :async-data="route('api.managers')" option-label="name" option-value="id" />
         </div>
         <div class="w-full">
             <x-toggle left-label="Ativo" wire:model.defer="active" />
         </div>
-        <button type="submit" class="text-white cursor-pointer p-2 bg-blue-500 rounded hover:bg-blue-700">Salvar</button>
+        <button type="submit"
+            class="text-white cursor-pointer p-2 bg-blue-500 rounded hover:bg-blue-700">Salvar</button>
     </form>
 </div>

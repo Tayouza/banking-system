@@ -8,6 +8,7 @@
                     <th class="border p-2">E-mail</th>
                     <th class="border p-2">Perfil</th>
                     <th class="border p-2">Ativo</th>
+                    <th class="border p-2">Gerente</th>
                     <th class="border p-2">Ações</th>
                 </tr>
             </thead>
@@ -17,8 +18,9 @@
                     <td class="border p-2">{{$user->name}}</td>
                     <td class="border p-2">{{\App\Helpers\Cpf::mask($user->cpf)}}</td>
                     <td class="border p-2">{{$user->email}}</td>
-                    <td class="border p-2">{{__($user->role->getNameTranslated())}}</td>
+                    <td class="border p-2">{{$user->role->getNameTranslated()}}</td>
                     <td class="border p-2">{{$user->active ? 'Ativo' : 'Inativo'}}</td>
+                    <td class="border p-2">{!!$user->customer?->manager?->name ?? '<span class="italic text-gray-500">Sem gerente</span>'!!}</td>
                     <td class="border p-2">
                         @if($user->role_id !== 1)
                         <button wire:click="$emit('openModal', 'modals.edit-users', {{json_encode(['id' => $user->id])}})" class="text-white cursor-pointer p-2 bg-blue-500 rounded hover:bg-blue-700">Editar</button>

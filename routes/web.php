@@ -30,4 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('api')->group(function () {
+    Route::name('api.')->group(function () {
+        Route::get('/managers', \App\Http\Controllers\Api\Managers::class)->name('managers');
+    });
+});
+
 require __DIR__ . '/auth.php';
