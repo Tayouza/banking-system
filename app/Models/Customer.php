@@ -6,6 +6,7 @@ use App\Models\Relations\CustomerRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Customer extends Model
 {
@@ -33,5 +34,10 @@ class Customer extends Model
     public function manager(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function account(): HasOne
+    {
+        return $this->hasOne(Account::class);
     }
 }

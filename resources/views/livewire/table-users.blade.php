@@ -1,5 +1,5 @@
 <div class="w-full flex justify-center p-2">
-    <div class="p-2 bg-white">
+    <div class="p-2 bg-white overflow-auto">
         <table class="table-fixed">
             <thead>
                 <tr>

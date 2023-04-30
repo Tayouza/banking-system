@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Helpers\Cpf;
+use App\Models\Account;
 use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -81,7 +82,11 @@ class RegisterCustomer extends Component
             'user_id'            => $user->id,
         ]);
 
-        $customer ? DB::commit() : DB::rollBack();
+        $account = Account::create([
+            'customer_id' => $customer->id
+        ]);
+
+        $account ? DB::commit() : DB::rollBack();
 
         return redirect()->route('home');
     }
