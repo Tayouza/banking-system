@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Scripts -->
         @wireUiScripts
@@ -18,7 +19,7 @@
     </head>
     <body class="font-sans antialiased">
         <x-notifications />
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen" style="background-color: rgba(136,151,210,255)">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

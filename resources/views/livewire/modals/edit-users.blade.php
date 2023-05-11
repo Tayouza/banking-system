@@ -1,13 +1,13 @@
 <div class="p-4">
     <form wire:submit.prevent="save" class="flex flex-col gap-y-2">
         <div class="w-full">
-            <x-input label="Nome" placeholder="Nome" wire:model.defer="name" />
+            <x-input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" label="Nome" placeholder="Nome" wire:model.defer="name" />
         </div>
         <div class="w-full">
-            <x-inputs.maskable mask="###.###.###-##" label="CPF" placeholder="000.000.000-00" wire:model.defer="cpf" />
+            <x-inputs.maskable class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" mask="###.###.###-##" label="CPF" placeholder="000.000.000-00" wire:model.defer="cpf" />
         </div>
         <div class="w-full">
-            <x-input label="Email" type="email" placeholder="example@mail.com" wire:model.defer="email" />
+            <x-input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" label="Email" type="email" placeholder="example@mail.com" wire:model.defer="email" />
         </div>
         <div class="w-full">
             <x-native-select label="Perfil" :options="$this->roles" option-label="name" option-value="id"
