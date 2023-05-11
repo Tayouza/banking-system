@@ -22,9 +22,9 @@
         <div>
         <nav class="flex items-center flex-wrap p-4 mb-8 text-white" style="background-color: rgba(172,173,207,255)">
             <!--Brand-->
-            <div class="flex items-center rounded hover:bg-gray-500 hover:shadow-xl">
-                <a href="" class="inline-flex items-center mr-4">
-                    <span class="font-bold tracking-wide text-3xl py-3 hover:bg-gray-500 hover:shadow-xl">
+            <div class="flex items-center rounded">
+                <a href="/" class="inline-flex items-center mr-4">
+                    <span class="font-bold tracking-wide text-3xl py-3">
                     <i class="material-icons h-10 ml-2">account_balance</i>
                         BBank
                     </span>

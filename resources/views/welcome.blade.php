@@ -10,18 +10,17 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdn.tailwindcss.com"></script>
 
         <!-- Styles -->
-  
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body style="background-color: rgba(136,151,210,255)">
 
     <nav class="flex items-center flex-wrap p-4 mb-8 text-white" style="background-color: rgba(172,173,207,255)">
         <!--Brand-->
-        <div class="flex items-center rounded hover:bg-gray-500 hover:shadow-xl">
-            <a href="" class="inline-flex items-center mr-4">
-                <span class="font-bold tracking-wide text-3xl py-3 hover:bg-gray-500 hover:shadow-xl">
+        <div class="flex items-center rounded">
+            <a href="/" class="inline-flex items-center mr-4">
+                <span class="font-bold tracking-wide text-3xl py-3">
                 <i class="material-icons h-10 ml-2">account_balance</i>
                     BBank
                 </span>

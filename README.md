@@ -1,66 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Banking System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Projeto para faculdade: uma implementação de um sistema bancário totalmente operável.
 
-## About Laravel
+## Tecnologias utilizadas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Docker, PHP, Laravel, Livewire, MariaDB.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Pré-requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Docker com plugin ```compose```, composer para gerenciar as depedências, PHP 8.1,
 
-## Learning Laravel
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1 - Instalar Git:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+https://git-scm.com/download/win
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2 - Clonar projeto github:
 
-## Laravel Sponsors
+git clone https://github.com/Tayouza/banking-system.git
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+link repositório: https://github.com/Tayouza/banking-system
 
-### Premium Partners
+3 - Configurar .env (variáveis de ambiente):
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Fazer uma cópia do arquivo .env.example com o nome .env
 
-## Contributing
+Alterar as variáveis:
+```
+DB_HOST=mariadb
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+4 - Instalar WSL:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Abrir Power Shell em modo administrador, inserir o comando:
+```
+wsl --install
+```
+5 - Fazer download do Docker Desktop
 
-## Code of Conduct
+https://www.docker.com/products/docker-desktop/
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6 - Instalar PHP 8.2:
 
-## Security Vulnerabilities
+https://www.youtube.com/watch?v=xiHkU6dylOs
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+em php.ini descomentar também extension=pdo_mysql, extension=fileinfo, extension=curl, extension=gd,  extension=openssl e extension=zip
 
-## License
+7 - Instalar Composer (gerenciador de bibliotecas PHP):
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+https://getcomposer.org/Composer-Setup.exe
+
+8 - Abrir a pasta do projeto no wsl:
+```
+Exemplo: cd /mnt/c/Users/{Seu usuário}/Documents/banking-system
+```
+(o meu caminho que fica dentro de documentos)
+
+Digitar o comando no Power Shell:
+```
+composer update
+```
+Quando terminar acessar o wsl através do Power Shell Digitando:
+```
+wsl
+wsl.exe -l -v
+```
+Verifique se você possui uma distro Ubuntu instalada. Pode acontecer de a distro estar por padrão no docker-desktop e essa Distro não possui bin bash por isso não funcionam comandos como o “.\vendor\bin\sail up -d“.
+
+Para resolver essa situação você vai precisar instalar uma distro Linux para o WSL:
+```
+wsl --install -d Ubuntu
+```
+Para setar a Distro Ubuntu como default:
+```
+wsl -s Ubuntu
+```
+Acesse o Ubuntu para configurar um usuário de acesso. Digite no terminal do Power Shell:
+```
+ubuntu
+```
+Defina o usuário com letra minúscula (não pode maiúscula). Não esqueça seu usuário e senha por nada nessa vida.
+
+Feito isso vamos voltar ao wsl. Digite:
+```
+wsl
+```
+O power shell vai ficar verde e agora você precisa navegar por dentro do wsl até a pasta banking-system. cd /mnt/c/Users/{Seu usuário}/Documents/banking-system
+
+Com o aplicativo Docker Desktop que instalamos anteriormente ABERTO e de preferência Logado com seu usuário, você vai executar os comandos a seguir:
+```
+./vendor/bin/sail up -d (demora pra caramba, uns 25min no 4/11)
+./vendor/bin/sail artisan key:generate
+./vendor/bin/sail npm update
+./vendor/bin/sail npm run build
+```
+
+## Contribuição
+
+
+
+## Licença
+
+MIT License
